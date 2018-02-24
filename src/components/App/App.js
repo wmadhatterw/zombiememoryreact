@@ -35,8 +35,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to the Clicky Memory Game</h1>
-          <p>Click on an image to earn points, but don't click on any more than once!</p>
+          <h1 className="App-title">Welcome to the Zombie Memory Game</h1>
+          <p>Click on a Zombie to earn points, but don't click on any more than once! Or it might Byte!!</p>
           <p>Score: {this.state.score}    Top Score: {this.state.topScore}</p>
 
         </header>
