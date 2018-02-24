@@ -14,6 +14,61 @@ class App extends Component {
     score: 0,
     topScore: 0
   }
+
+    shuffle = (a) => {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+  }
+
+  handleClick = (event) => {
+    const cardId = event.target.attributes.getNamedItem("data-id").value;
+    // console.log(cardId);
+    // We always use the setState method to update a component's state
+    this.addGuess(cardId);
+    this.shuffle(cards);
+  }
+
+  incrementScore = () => {
+    this.setState({ score: this.state.score + 1 });
+    if (this.state.score === 12){
+      alert("Congratulations! You are a memory wizard!");
+      this.setState({
+        guessedCards: [],
+        score: 0
+      });
+    }
+  }
+
+  incrementTopScore = () => {
+      if (this.state.score === this.state.topScore && this.state.topScore !== 12) {
+        this.setState({ topScore: this.state.topScore + 1 });
+      }
+  }
+
+  addGuess = (id) => {
+
+    if (this.state.guessedCards.indexOf(id) === -1) {
+      this.state.guessedCards.push(id);
+      this.incrementScore();
+      this.incrementTopScore();
+    }
+
+    else {
+      alert("This card has already been clicked!");
+      this.setState({
+        guessedCards: [],
+        score: 0
+      });
+    }
+
+    // console.log(this.state.guessedCards);
+    // console.log(id);
+  }
 //   render() {
 //     return (
 //       <div className="App">
