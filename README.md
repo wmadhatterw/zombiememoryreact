@@ -9,6 +9,7 @@ git clone https://github.com/wmadhatterw/zombiememoryreact.git
 
 cd zomibiememoryreact
 yarn install
+
 yarn start
 
 ------------------------------------------------------------
